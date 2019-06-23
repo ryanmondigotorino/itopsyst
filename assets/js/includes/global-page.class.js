@@ -48,6 +48,7 @@ var GlobalPage = {
                     $('input[name="noofelements"]').val(getResult['count']);
                     $('div.form-elements').append(getResult['content']);
                     $('button[type="submit"].global-landing-form-btn').removeClass('d-none');
+                    $('form.global-landing-form').removeClass('d-none');
                 }
             });
 

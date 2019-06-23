@@ -43,6 +43,9 @@ $config['nav-tabs'] = [
     ],
 ];
 
+$config['instructions'] = 'Compute for the total head movement for a 200 (0 - 199) track disk and seek  time using the seek rate of 3ms for each
+disk scheduling algorithm. Seek time rate = Total Head Movement x Seek Time Rate';
+
 $config['group_mates'] = [
     'torino' => [
         'image' => 'ryan-torino.jpg',

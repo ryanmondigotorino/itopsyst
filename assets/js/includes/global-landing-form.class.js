@@ -17,23 +17,12 @@ var GlobalForm = {
                     $(targetBtn).prop('disabled',true);
                     $(targetBtn).html('<i class="fa fa-spinner fa-pulse"></i> Processing..');
                 },
-                success:function(result){
-                    console.log(result);
-                    return false;
+                success:function(getResult){
+                    var result = JSON.parse(getResult);
                     if(result['status'] == 'success'){
-                        if(result['url'] == 'none'){
-                            location.reload();
-                        }else{
-                            swal({
-                                title: "Success",
-                                text: result['message'],
-                                icon: result['status'],
-                            }).then((confirm) => {
-                                if(confirm){
-                                    location.href = result['url'];
-                                }
-                            });
-                        }
+                        $('p.input-given').append(result['values'])
+                        $('p.instructions').removeClass('d-none');
+                        $('div.modal#input_values').modal('toggle');
                     }else if(result['status'] == 'warning'){
                         swal({
                             title: "Warning",
