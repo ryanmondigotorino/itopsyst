@@ -18,11 +18,16 @@ var GlobalForm = {
                     $(targetBtn).html('<i class="fa fa-spinner fa-pulse"></i> Processing..');
                 },
                 success:function(getResult){
+                    console.log(getResult);
+                    return false;
                     var result = JSON.parse(getResult);
+                    // console.log(result['fcfs']);
+                    // return false;
                     if(result['status'] == 'success'){
                         $('p.input-given').append(result['values'])
                         $('p.instructions').removeClass('d-none');
                         $('div.modal#input_values').modal('toggle');
+                        $('p.computation').append(result['fcfs']['computeThm']);
                     }else if(result['status'] == 'warning'){
                         swal({
                             title: "Warning",

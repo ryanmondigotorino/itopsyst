@@ -28,11 +28,45 @@ if($noofElements > 0){
                 exit;
             }
         }
-        sort($gets);
+        $computation = 0;
+        $getDetails = [];
+        for($count = 0;$count < $noofElements;$count++){
+            if($count == 0){
+                $init = $read_write_head - $gets[0];
+            }else{
+                echo $count;
+            }
+            $compe = $gets[$count] - $gets[$counter];
+            // $computation = $compe;
+        }
+        exit;
+        // foreach($gets as $key => $get){
+        //     $comps = 0;
+        //     if($key == 0){
+        //         // $comps = $read_write_head - $get;
+        //     }else{
+        //         $comps = $get;
+        //     }
+        //     $computation = $comps;
+        //     // $inital = $read_write_head - $gets[0];
+        //     // $computation += (abs($get - $read_write_head));
+        //     // $getDetails[$key] = (abs($get - $read_write_head));
+        // }
+        echo $computation;
+        exit;
+        $orGets = implode(' + ',$getDetails).' = '.$computation;
+        $orSeek = $computation. ' x 3 = '.($computation * 3);
+        $fcfs = [
+            'computeThm' => $orGets,
+            'computeSeek' => $orSeek,
+            'thm' => $computation,
+            'seektime' => ($computation * 3),
+        ];
         $result = [
             'status' => 'success',
             'values' => 'Given the following track request in the disk queue compute for the total head movement (THM) of the R/W Head '.implode(', ',$gets).'.
                 Consider that the read write head is positioned at location '.$read_write_head.'.',
+            'fcfs' => $fcfs
         ];
         echo json_encode($result);
         exit;

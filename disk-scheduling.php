@@ -25,10 +25,13 @@
                             <div class="tab-pane active container" id="fcfs">
                                 <h1 class="mt-2"><span class="fa fa-user"></span> First Come First serve (FCFS)</h1><hr>
                                 <p class="input-given"></p>
-                                <p class="instructions d-none"><?=$config['instructions']?></p>
+                                <p class="instructions d-none"><?=$config['instructions']?></p><hr>
                                 <div class="row">
                                     <div class="col-lg-12">
-
+                                        <b>Arrangement</b>
+                                        <p class="arrangements"></p><hr>
+                                        <b>Computation</b>
+                                        <p class="computation"></p>
                                     </div>
                                 </div>
                             </div>
