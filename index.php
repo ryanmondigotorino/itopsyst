@@ -6,6 +6,11 @@
                 <div class="profile_content">
                     <h1 class="text-center">Welcome to our project in ITOPSYSTA</h1>
                     <p class="text-center">Disk Scheduling Techniques Application using PHP</p><hr>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <img src="<?=$config['base_url']?>images/cover_photo.jpg" alt="cover photo" class="img-fluid">
+                        </div>
+                    </div><hr>
                     <h1><span class="fa fa-users"></span> Our group mates</h1><hr>
                     <div class="row">
                         <?php foreach($config['group_mates'] as $key => $group):?>

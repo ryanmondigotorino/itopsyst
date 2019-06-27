@@ -84,7 +84,13 @@
                                 <p class="instructions d-none"><?=$config['instructions']?></p>
                                 <div class="row">
                                     <div class="col-lg-12">
-
+                                        <b>Arrangement</b><hr>
+                                        <p class="cscanDOWN_arrangement"></p><hr>
+                                        <b>Computation</b><hr>
+                                        <p class="cscanDOWN_computation"></p><hr>
+                                        <b>Answers</b>
+                                        <p class="cscanDOWN_thm"></p>
+                                        <p class="cscanDOWN_seektime"></p>
                                     </div>
                                 </div>
                             </div>
@@ -94,7 +100,13 @@
                                 <p class="instructions d-none"><?=$config['instructions']?></p>
                                 <div class="row">
                                     <div class="col-lg-12">
-
+                                        <b>Arrangement</b><hr>
+                                        <p class="cscanUP_arrangement"></p><hr>
+                                        <b>Computation</b><hr>
+                                        <p class="cscanUP_computation"></p><hr>
+                                        <b>Answers</b>
+                                        <p class="cscanUP_thm"></p>
+                                        <p class="cscanUP_seektime"></p>
                                     </div>
                                 </div>
                             </div>
@@ -136,7 +148,13 @@
                                 <p class="instructions d-none"><?=$config['instructions']?></p>
                                 <div class="row">
                                     <div class="col-lg-12">
-
+                                        <b>Arrangement</b><hr>
+                                        <p class="clookDOWN_arrangement"></p><hr>
+                                        <b>Computation</b><hr>
+                                        <p class="clookDOWN_computation"></p><hr>
+                                        <b>Answers</b>
+                                        <p class="clookDOWN_thm"></p>
+                                        <p class="clookDOWN_seektime"></p>
                                     </div>
                                 </div>
                             </div>
@@ -146,7 +164,13 @@
                                 <p class="instructions d-none"><?=$config['instructions']?></p>
                                 <div class="row">
                                     <div class="col-lg-12">
-
+                                        <b>Arrangement</b><hr>
+                                        <p class="clookUP_arrangement"></p><hr>
+                                        <b>Computation</b><hr>
+                                        <p class="clookUP_computation"></p><hr>
+                                        <b>Answers</b>
+                                        <p class="clookUP_thm"></p>
+                                        <p class="clookUP_seektime"></p>
                                     </div>
                                 </div>
                             </div>

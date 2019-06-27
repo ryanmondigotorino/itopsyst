@@ -1,6 +1,6 @@
 <?php
 
-$config['base_url'] = "http://$_SERVER[HTTP_HOST]/itopsyst/";
+$config['base_url'] = "http://$_SERVER[HTTP_HOST]/opsyst/";
 
 $config['nav-bar'] = [
     'home' => [
@@ -47,13 +47,13 @@ $config['instructions'] = 'Compute for the total head movement for a 200 (0 - 19
 disk scheduling algorithm. Seek time rate = Total Head Movement x Seek Time Rate';
 
 $config['group_mates'] = [
-    'torino' => [
-        'image' => 'ryan-torino.jpg',
-        'name' => 'Ryan M. Torino'
-    ],
     'sy' => [
         'image' => 'jer-jay.jpg',
         'name' => 'Jerjay Sy'
+    ],
+    'torino' => [
+        'image' => 'ryan-torino.jpg',
+        'name' => 'Ryan M. Torino'
     ],
     'devera' => [
         'image' => 'christian.jpg',

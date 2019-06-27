@@ -38,6 +38,14 @@ var GlobalForm = {
                         $('p.scanUP_computation').append(result['scanUP']['computeThm']);
                         $('p.scanUP_thm').append(result['scanUP']['thm']);
                         $('p.scanUP_seektime').append(result['scanUP']['seektime']);
+                        $('p.cscanDOWN_arrangement').append(result['cscanDOWN']['arrangement']);
+                        $('p.cscanDOWN_computation').append(result['cscanDOWN']['computeThm']);
+                        $('p.cscanDOWN_thm').append(result['cscanDOWN']['thm']);
+                        $('p.cscanDOWN_seektime').append(result['cscanDOWN']['seektime']);
+                        $('p.cscanUP_arrangement').append(result['cscanUP']['arrangement']);
+                        $('p.cscanUP_computation').append(result['cscanUP']['computeThm']);
+                        $('p.cscanUP_thm').append(result['cscanUP']['thm']);
+                        $('p.cscanUP_seektime').append(result['cscanUP']['seektime']);
                         $('p.lookUP_arrangement').append(result['lookUP']['arrangement']);
                         $('p.lookUP_computation').append(result['lookUP']['computeThm']);
                         $('p.lookUP_thm').append(result['lookUP']['thm']);
@@ -46,6 +54,14 @@ var GlobalForm = {
                         $('p.lookDOWN_computation').append(result['lookDOWN']['computeThm']);
                         $('p.lookDOWN_thm').append(result['lookDOWN']['thm']);
                         $('p.lookDOWN_seektime').append(result['lookDOWN']['seektime']);
+                        $('p.clookDOWN_arrangement').append(result['clookDOWN']['arrangement']);
+                        $('p.clookDOWN_computation').append(result['clookDOWN']['computeThm']);
+                        $('p.clookDOWN_thm').append(result['clookDOWN']['thm']);
+                        $('p.clookDOWN_seektime').append(result['clookDOWN']['seektime']);
+                        $('p.clookUP_arrangement').append(result['clookUP']['arrangement']);
+                        $('p.clookUP_computation').append(result['clookUP']['computeThm']);
+                        $('p.clookUP_thm').append(result['clookUP']['thm']);
+                        $('p.clookUP_seektime').append(result['clookUP']['seektime']);
                     }else if(result['status'] == 'warning'){
                         swal({
                             title: "Warning",
