@@ -58,40 +58,25 @@ if($noofElements > 0){
          * -        Shortest seek time first (SSTF)
          * -----------------------------------------------
          */
-        // $getMin = [];$val = [];$exemptIndexkey = [];
-        // sort($gets);
-        // for($mainCount = 0; $mainCount < $noofElements;$mainCount++){
-        //     if($mainCount == 0){
-        //         for($count = 0;$count < $noofElements;$count++){
-        //             $getMin[$mainCount][$count] = abs($read_write_head - $gets[$count]);
+        // $initSSTF = [];
+        // $getGivenSSTF = $gets;
+        // sort($getGivenSSTF);
+        // foreach($getGivenSSTF as $key => $value){
+        //     $innerArray = [];
+        //     if($key == 0){
+        //         foreach($getGivenSSTF as $keyinner => $valueinner){
+        //             $innerArray[0][$keyinner] = abs($read_write_head - $valueinner);
         //         }
-        //         $val[$mainCount] = min($getMin[$mainCount]); //$exemptIndexKey[$mainCount] is the key of this value
-        //         $exemptIndexkey[$mainCount] = array_search($val[$mainCount],$getMin[$mainCount]);
+        //         $initSCAN0[0] = min($innerArray[0]);
         //     }else{
-        //         echo $mainCount - 1;
-                
-        //         foreach($gets as $key => $get){
-        //             $getMin[$mainCount][$key] = $get;
+        //         foreach($getGivenSSTF as $keyinner => $valueinner){
+        //             $innerArray[$key][$keyinner] = $getGivenSSTF[$keyinner] - $valueinner;
         //         }
-        //         echo json_encode($getMin);
-                // for($count = 0;$count < $noofElements;$count++){
-                    // if($count != $exemptIndexkey0){
-                    //     $getMin1[$count] = abs($gets[$exemptIndexkey0] - $gets[$count]);
-                    // }
-                // }
-                // $val1 = min($getMin1);//$exemptIndexKey1 is the key of this value
-                // $exemptIndexkey1 = array_search($val1,$getMin1);
-            // }
+        //         echo json_encode($getGivenSSTF);
+        //     }
         // }
-        // echo json_encode($val);
+        // echo json_encode($initSCAN0);
         // exit;
-        
-        // $sstf = [
-        //     'computeThm' => $orGets,
-        //     'thm' => 'THM: '.$getThm.' tracks',
-        //     'seektime' => 'Seek-time: '.($getThm * 3).'ms',
-        // ];
-
         /**
          * -----------------------------------------------
          * -        Scan Towards 0 (SCAN 0)
