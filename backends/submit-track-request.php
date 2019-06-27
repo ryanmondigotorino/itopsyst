@@ -28,45 +28,63 @@ if($noofElements > 0){
                 exit;
             }
         }
-        $computation = 0;
-        $getDetails = [];
+        /**
+         * -------------------------------------------------
+         * -        First Come First serve (FCFS)
+         * -------------------------------------------------
+         */
+        $initFCFS = [];
         for($count = 0;$count < $noofElements;$count++){
             if($count == 0){
-                $init = $read_write_head - $gets[0];
+                $initFCFS[0] = abs($read_write_head - $gets[0]);
             }else{
-                echo $count;
+                $prev = $count - 1;
+                $initFCFS[$count] = abs($gets[$prev] - $gets[$count]);
             }
-            $compe = $gets[$count] - $gets[$counter];
-            // $computation = $compe;
         }
-        exit;
-        // foreach($gets as $key => $get){
-        //     $comps = 0;
-        //     if($key == 0){
-        //         // $comps = $read_write_head - $get;
-        //     }else{
-        //         $comps = $get;
-        //     }
-        //     $computation = $comps;
-        //     // $inital = $read_write_head - $gets[0];
-        //     // $computation += (abs($get - $read_write_head));
-        //     // $getDetails[$key] = (abs($get - $read_write_head));
-        // }
-        echo $computation;
-        exit;
-        $orGets = implode(' + ',$getDetails).' = '.$computation;
-        $orSeek = $computation. ' x 3 = '.($computation * 3);
+        $getThmFCFS = 0;
+        foreach($initFCFS as $value){
+            $getThmFCFS += $value;
+        }
+        $orGetsFCFS = '<b>Get THM: </b>'.implode(' + ',$initFCFS).' = '."<b>".$getThmFCFS."</b>"."<br>".
+            "<b>Get SeekTime: </b>".$getThmFCFS. ' x 3 = '."<b>".($getThmFCFS * 3)."</b>";
         $fcfs = [
-            'computeThm' => $orGets,
-            'computeSeek' => $orSeek,
-            'thm' => $computation,
-            'seektime' => ($computation * 3),
+            'computeThm' => $orGetsFCFS,
+            'thm' => 'THM: '.$getThmFCFS.' tracks',
+            'seektime' => 'Seek-time: '.($getThmFCFS * 3).'ms',
         ];
+        /**
+         * -----------------------------------------------
+         * -        Shortest seek time first (SSTF)
+         * -----------------------------------------------
+         */
+        // $initSSTF = [];
+        // sort($gets);
+        // echo json_encode($gets);
+        // exit;
+        // for($count = 0;$count < $noofElements;$count++){
+            // $compe = 0;
+            // if($count == 0){
+            //     $initSSTF[0] = ($read_write_head - $gets[0]);
+            // }else{
+            //     $prev = $count - 1;
+            //     $initSSTF[$count] = abs($gets[$prev] - $gets[$count]);
+            // }
+        // }
+
+        // exit;
+        // $sstf = [
+        //     'computeThm' => $orGets,
+        //     'thm' => 'THM: '.$getThm.' tracks',
+        //     'seektime' => 'Seek-time: '.($getThm * 3).'ms',
+        // ];
+
         $result = [
             'status' => 'success',
             'values' => 'Given the following track request in the disk queue compute for the total head movement (THM) of the R/W Head '.implode(', ',$gets).'.
                 Consider that the read write head is positioned at location '.$read_write_head.'.',
-            'fcfs' => $fcfs
+            'fcfs' => $fcfs,
+            // 'sstf' => $sstf,
         ];
         echo json_encode($result);
         exit;

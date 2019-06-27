@@ -28,10 +28,11 @@
                                 <p class="instructions d-none"><?=$config['instructions']?></p><hr>
                                 <div class="row">
                                     <div class="col-lg-12">
-                                        <b>Arrangement</b>
-                                        <p class="arrangements"></p><hr>
-                                        <b>Computation</b>
-                                        <p class="computation"></p>
+                                        <b>Computation</b><hr>
+                                        <p class="computation"></p><hr>
+                                        <b>Answers</b>
+                                        <p class="thm"></p>
+                                        <p class="seektime"></p>
                                     </div>
                                 </div>
                             </div>
@@ -137,7 +138,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title">Input Values</h5>
-                <button type="button" class="close modal-close">
+                <button type="button" class="close modal-close" data-url="<?=$config['base_url']?>">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
@@ -177,7 +178,7 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary modal-close">Close</button>
+                <button type="button" class="btn btn-secondary modal-close" data-url="<?=$config['base_url']?>">Close</button>
             </div>
         </div>
     </div>

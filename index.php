@@ -9,7 +9,7 @@
                     <h1><span class="fa fa-users"></span> Our group mates</h1><hr>
                     <div class="row">
                         <?php foreach($config['group_mates'] as $key => $group):?>
-                            <div class="col-12 col-md-4 col-lg-3 mt-5">
+                            <div class="col-12 col-md-6 col-lg-3 mt-5">
                                 <div class="card card_shad card-container" style="width:100%;">
                                     <div class="card-body">
                                         <div class="items">

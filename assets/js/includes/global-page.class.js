@@ -15,6 +15,7 @@ var GlobalPage = {
         });
 
         $('.modal-close').on('click',function(){
+            var url = $(this).attr('data-url');
             swal({
                 title: "Warning!",
                 text: 'Your inputs will be deleted? Close modal?',
@@ -22,6 +23,7 @@ var GlobalPage = {
                 button: "Ok",
             }).then((result) => {
                 $('#input_values').modal('toggle');
+                location.href=url;
             });
         });
 

@@ -1,6 +1,6 @@
 <?php
 
-$config['base_url'] = "http://$_SERVER[HTTP_HOST]/opsyst/";
+$config['base_url'] = "http://$_SERVER[HTTP_HOST]/itopsyst/";
 
 $config['nav-bar'] = [
     'home' => [
