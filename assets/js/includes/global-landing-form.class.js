@@ -34,6 +34,18 @@ var GlobalForm = {
                         $('p.scan0_computation').append(result['scan0']['computeThm']);
                         $('p.scan0_thm').append(result['scan0']['thm']);
                         $('p.scan0_seektime').append(result['scan0']['seektime']);
+                        $('p.scanUP_arrangement').append(result['scanUP']['arrangement']);
+                        $('p.scanUP_computation').append(result['scanUP']['computeThm']);
+                        $('p.scanUP_thm').append(result['scanUP']['thm']);
+                        $('p.scanUP_seektime').append(result['scanUP']['seektime']);
+                        $('p.lookUP_arrangement').append(result['lookUP']['arrangement']);
+                        $('p.lookUP_computation').append(result['lookUP']['computeThm']);
+                        $('p.lookUP_thm').append(result['lookUP']['thm']);
+                        $('p.lookUP_seektime').append(result['lookUP']['seektime']);
+                        $('p.lookDOWN_arrangement').append(result['lookDOWN']['arrangement']);
+                        $('p.lookDOWN_computation').append(result['lookDOWN']['computeThm']);
+                        $('p.lookDOWN_thm').append(result['lookDOWN']['thm']);
+                        $('p.lookDOWN_seektime').append(result['lookDOWN']['seektime']);
                     }else if(result['status'] == 'warning'){
                         swal({
                             title: "Warning",

@@ -68,7 +68,13 @@
                                 <p class="instructions d-none"><?=$config['instructions']?></p>
                                 <div class="row">
                                     <div class="col-lg-12">
-
+                                        <b>Arrangement</b><hr>
+                                        <p class="scanUP_arrangement"></p><hr>
+                                        <b>Computation</b><hr>
+                                        <p class="scanUP_computation"></p><hr>
+                                        <b>Answers</b>
+                                        <p class="scanUP_thm"></p>
+                                        <p class="scanUP_seektime"></p>
                                     </div>
                                 </div>
                             </div>
@@ -98,7 +104,13 @@
                                 <p class="instructions d-none"><?=$config['instructions']?></p>
                                 <div class="row">
                                     <div class="col-lg-12">
-
+                                        <b>Arrangement</b><hr>
+                                        <p class="lookDOWN_arrangement"></p><hr>
+                                        <b>Computation</b><hr>
+                                        <p class="lookDOWN_computation"></p><hr>
+                                        <b>Answers</b>
+                                        <p class="lookDOWN_thm"></p>
+                                        <p class="lookDOWN_seektime"></p>
                                     </div>
                                 </div>
                             </div>
@@ -108,7 +120,13 @@
                                 <p class="instructions d-none"><?=$config['instructions']?></p>
                                 <div class="row">
                                     <div class="col-lg-12">
-
+                                        <b>Arrangement</b><hr>
+                                        <p class="lookUP_arrangement"></p><hr>
+                                        <b>Computation</b><hr>
+                                        <p class="lookUP_computation"></p><hr>
+                                        <b>Answers</b>
+                                        <p class="lookUP_thm"></p>
+                                        <p class="lookUP_seektime"></p>
                                     </div>
                                 </div>
                             </div>

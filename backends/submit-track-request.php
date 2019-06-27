@@ -98,7 +98,7 @@ if($noofElements > 0){
          * -----------------------------------------------
          */
         $initSCAN0 = [];
-        $getGiven = [$read_write_head];
+        $getGiven = [0,$read_write_head,199];
         $sortedGets = array_merge($getGiven,$gets);
         sort($sortedGets);
         $getIndexRead = array_search($read_write_head,$sortedGets);
@@ -112,7 +112,8 @@ if($noofElements > 0){
                 $initSCAN0[$key] = abs($getSliceDesc[$prev] - $getTowards0);
             }
         }
-        $getSliceAsc = array_slice($sortedGets,$getIndexRead + 1);
+
+        $getSliceAsc = array_slice($sortedGets,$getIndexRead + 1, -1);
         sort($getSliceAsc);
         $getLastValDesc = $getSliceDesc[count($getSliceDesc) - 1];
         foreach($getSliceAsc as $key => $finalScan){
@@ -124,6 +125,7 @@ if($noofElements > 0){
                 $initSCAN0[$genKey] = abs($getSliceAsc[$prev] - $finalScan);
             }
         }
+        
         $getThmSCAN0 = 0;
         foreach($initSCAN0 as $value){
             $getThmSCAN0 += $value;
@@ -131,19 +133,141 @@ if($noofElements > 0){
         $orGetsSCAN0 = '<b>Get THM: </b>'.implode(' + ',$initSCAN0).' = '."<b>".$getThmSCAN0."</b>"."<br>".
             "<b>Get SeekTime: </b>".$getThmSCAN0. ' x 3 = '."<b>".($getThmSCAN0 * 3)."</b>";
         $scan0 = [
-            'arrangement' => "0,".implode(',',$sortedGets).",199",
+            'arrangement' => implode(',',$sortedGets),
             'computeThm' => $orGetsSCAN0,
             'thm' => 'THM: '.$getThmSCAN0.' tracks',
             'seektime' => 'Seek-time: '.($getThmSCAN0 * 3).'ms',
         ];
+
+
+        /**
+         * -----------------------------------------------
+         * -        Scan Towards Upwards
+         * -----------------------------------------------
+         */
+        $initSCANUP = [];
+        $getScanUp = array_slice($sortedGets,$getIndexRead + 1);
+        sort($getScanUp);
+        foreach($getScanUp as $key => $scanUp){
+            if($key == 0){
+                $initSCANUP[0] = abs($read_write_head - $scanUp);
+            }else{
+                $prev = $key - 1;
+                $initSCANUP[$key] = abs($getScanUp[$prev] - $scanUp);
+            }
+        }
+        $getScanDown = array_slice($sortedGets,1,$getIndexRead - 1);
+        rsort($getScanDown);
+        $getLastValScanUp = $getScanUp[count($getScanUp) - 1];
+        foreach($getScanDown as $key => $scandown){
+            $genKey = $key + count($getScanUp);
+            if($key == 0){
+                $initSCANUP[$genKey] = abs($getLastValScanUp - $scandown);
+            }else{
+                $prev = $key - 1;
+                $initSCANUP[$genKey] = abs($getScanDown[$prev] - $scandown);
+            }
+        }
+        $getThmSCANUP = 0;
+        foreach($initSCANUP as $value){
+            $getThmSCANUP += $value;
+        }
+        $orGetsSCANUP = '<b>Get THM: </b>'.implode(' + ',$initSCANUP).' = '."<b>".$getThmSCANUP."</b>"."<br>".
+            "<b>Get SeekTime: </b>".$getThmSCANUP. ' x 3 = '."<b>".($getThmSCANUP * 3)."</b>";
+        $scanUP = [
+            'arrangement' => implode(',',$sortedGets),
+            'computeThm' => $orGetsSCANUP,
+            'thm' => 'THM: '.$getThmSCANUP.' tracks',
+            'seektime' => 'Seek-time: '.($getThmSCANUP * 3).'ms',
+        ];
+
+        /**
+         * -----------------------------------------------
+         * -        LOOK downward direction
+         * -----------------------------------------------
+         */
+        $initLOOKDOWN = [];
+        foreach($getScanDown as $key => $lookdown){
+            if($key == 0){
+                $initLOOKDOWN[0] = abs($read_write_head - $lookdown);
+            }else{
+                $prev = $key - 1;
+                $initLOOKDOWN[$key] = abs($getScanDown[$prev] - $lookdown);
+            }
+        }
+        $getLastValLookDown = $getScanDown[count($getScanDown) - 1];
         
+        foreach($getSliceAsc as $key => $lookup){
+            $genKey = $key + count($getScanDown);
+            if($key == 0){
+                $initLOOKDOWN[$genKey] = abs($getLastValLookDown - $lookup);
+            }else{
+                $prev = $key - 1;
+                $initLOOKDOWN[$genKey] = abs($getSliceAsc[$prev] - $lookup);
+            }
+        }
+        
+        $getThmLOOKDOWN = 0;
+        foreach($initLOOKDOWN as $value){
+            $getThmLOOKDOWN += $value;
+        }
+        $orGetsLOOKDOWN = '<b>Get THM: </b>'.implode(' + ',$initLOOKDOWN).' = '."<b>".$getThmLOOKDOWN."</b>"."<br>".
+            "<b>Get SeekTime: </b>".$getThmLOOKDOWN. ' x 3 = '."<b>".($getThmLOOKDOWN * 3)."</b>";
+        $lookDOWN = [
+            'arrangement' => implode(',',$sortedGets),
+            'computeThm' => $orGetsLOOKDOWN,
+            'thm' => 'THM: '.$getThmLOOKDOWN.' tracks',
+            'seektime' => 'Seek-time: '.($getThmLOOKDOWN * 3).'ms',
+        ];
+
+
+        /**
+         * -----------------------------------------------
+         * -        LOOK upward direction
+         * -----------------------------------------------
+         */
+        $initLOOKUP = [];
+        foreach($getSliceAsc as $key => $lookup){
+            if($key == 0){
+                $initLOOKUP[0] = abs($read_write_head - $lookup);
+            }else{
+                $prev = $key - 1;
+                $initLOOKUP[$key] = abs($getSliceAsc[$prev] - $lookup);
+            }
+        }
+        $getLastValLookUp = $getSliceAsc[count($getSliceAsc) - 1];
+        foreach($getScanDown as $key => $lookdown){
+            $genKey = $key + count($getSliceAsc);
+            if($key == 0){
+                $initLOOKUP[$genKey] = abs($getLastValLookUp - $lookdown);
+            }else{
+                $prev = $key - 1;
+                $initLOOKUP[$genKey] = abs($getScanDown[$prev] - $lookdown);
+            }
+        }
+        $getThmLOOKUP = 0;
+        foreach($initLOOKUP as $value){
+            $getThmLOOKUP += $value;
+        }
+        $orGetsLOOKUP = '<b>Get THM: </b>'.implode(' + ',$initLOOKUP).' = '."<b>".$getThmLOOKUP."</b>"."<br>".
+            "<b>Get SeekTime: </b>".$getThmLOOKUP. ' x 3 = '."<b>".($getThmLOOKUP * 3)."</b>";
+        $lookUP = [
+            'arrangement' => implode(',',$sortedGets),
+            'computeThm' => $orGetsLOOKUP,
+            'thm' => 'THM: '.$getThmLOOKUP.' tracks',
+            'seektime' => 'Seek-time: '.($getThmLOOKUP * 3).'ms',
+        ];
+
         $result = [
             'status' => 'success',
             'values' => 'Given the following track request in the disk queue compute for the total head movement (THM) of the R/W Head '.implode(', ',$gets).'.
                 Consider that the read write head is positioned at location '.$read_write_head.'.',
             'fcfs' => $fcfs,
             // 'sstf' => $sstf,
-            'scan0' => $scan0
+            'scan0' => $scan0,
+            'scanUP' => $scanUP,
+            'lookDOWN' => $lookDOWN,
+            'lookUP' => $lookUP,
         ];
         echo json_encode($result);
         exit;
