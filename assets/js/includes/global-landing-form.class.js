@@ -27,9 +27,13 @@ var GlobalForm = {
                         $('p.input-given').append(result['values'])
                         $('p.instructions').removeClass('d-none');
                         $('div.modal#input_values').modal('toggle');
-                        $('p.computation').append(result['fcfs']['computeThm']);
-                        $('p.thm').append(result['fcfs']['thm']);
-                        $('p.seektime').append(result['fcfs']['seektime']);
+                        $('p.fcfs_computation').append(result['fcfs']['computeThm']);
+                        $('p.fcfs_thm').append(result['fcfs']['thm']);
+                        $('p.fcfs_seektime').append(result['fcfs']['seektime']);
+                        $('p.scan0_arrangement').append(result['scan0']['arrangement']);
+                        $('p.scan0_computation').append(result['scan0']['computeThm']);
+                        $('p.scan0_thm').append(result['scan0']['thm']);
+                        $('p.scan0_seektime').append(result['scan0']['seektime']);
                     }else if(result['status'] == 'warning'){
                         swal({
                             title: "Warning",

@@ -29,10 +29,10 @@
                                 <div class="row">
                                     <div class="col-lg-12">
                                         <b>Computation</b><hr>
-                                        <p class="computation"></p><hr>
+                                        <p class="fcfs_computation"></p><hr>
                                         <b>Answers</b>
-                                        <p class="thm"></p>
-                                        <p class="seektime"></p>
+                                        <p class="fcfs_thm"></p>
+                                        <p class="fcfs_seektime"></p>
                                     </div>
                                 </div>
                             </div>
@@ -52,7 +52,13 @@
                                 <p class="instructions d-none"><?=$config['instructions']?></p>
                                 <div class="row">
                                     <div class="col-lg-12">
-
+                                        <b>Arrangement</b><hr>
+                                        <p class="scan0_arrangement"></p><hr>
+                                        <b>Computation</b><hr>
+                                        <p class="scan0_computation"></p><hr>
+                                        <b>Answers</b>
+                                        <p class="scan0_thm"></p>
+                                        <p class="scan0_seektime"></p>
                                     </div>
                                 </div>
                             </div>
